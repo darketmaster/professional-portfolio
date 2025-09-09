@@ -1,0 +1,30 @@
+@startuml
+' ======================================================
+' C4 Model - Component Diagram (BI Module)
+' Author: Mauricio Lopez
+' ======================================================
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title BI Module - Component Diagram
+
+System_Boundary(bi, "BI Module (PHP + JavaScript + Web Services)") {
+    
+    Component(ui, "BI Web UI", "PHP + JavaScript", "Provides dashboards, visualizations, and ad-hoc queries for internal users")
+    Component(api, "BI Web Services", "REST APIs", "Exposes near real-time data to external systems (including BSS)")
+    Component(auth, "Authentication & Access Control", "PHP + Middleware", "Ensures secure access to reports and dashboards")
+}
+
+' External context
+ContainerDb(db, "MySQL Cluster", "MySQL", "Provides processed CDR data for analytics")
+System_Ext(bss, "External BSS System", "Queries BI services for reporting and billing")
+
+' Relationships
+Rel(ui, api, "Invokes APIs")
+Rel(api, db, "Queries analytics data", "SQL")
+Rel(ui, auth, "User login & permissions")
+Rel(auth, db, "Checks roles & permissions")
+Rel(bss, api, "Consumes near real-time analytics")
+
+footer Author: Mauricio Lopez
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+' ======================================================
+' C4 Model - Component Diagram (Reporting Engine)
+' Author: Mauricio Lopez
+' ======================================================
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Reporting Engine - Component Diagram
+
+System_Boundary(reporting, "Reporting Engine (Bash Scripts)") {
+    
+    Component(generator, "Report Generator", "Bash Scripts", "Executes queries against MySQL and generates monthly/periodic reports")
+    Component(exporter, "CSV Exporter", "Bash + awk/sed", "Formats consolidated outputs into CSV files")
+    Component(scheduler, "Job Scheduler", "Cron", "Schedules execution of reporting tasks")
+}
+
+' External context
+ContainerDb(db, "MySQL Cluster", "MySQL", "Stores processed CDR data and business rules results")
+System_Ext(bss, "External BSS System", "Consumes generated reports and CSV exports")
+
+' Relationships
+Rel(scheduler, generator, "Triggers jobs")
+Rel(generator, db, "Fetches processed data", "SQL queries")
+Rel(generator, exporter, "Passes raw results")
+Rel(exporter, bss, "Delivers reports & CSV exports")
+
+footer Author: Mauricio Lopez
+@enduml

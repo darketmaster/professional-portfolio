@@ -60,6 +60,41 @@ Details the **ETL Container**, showing its internal components.
 
 ---
 
+#### 3.2 Reporting Engine
+Shows the internal structure of the **Reporting Engine**.
+
+![Reporting Component Diagram](./diagrams/C4_L3_REPORT.png)  
+📄 [PlantUML source](./docs/C4_L3_REPORT.puml)
+
+**Components:**
+- **Job Scheduler** → Cron-based task scheduler.  
+- **Report Generator** → Queries MySQL and builds reports.  
+- **CSV Exporter** → Formats and exports consolidated data into CSV.  
+
+**External Context:**
+- **MySQL Cluster** → Provides processed data for reports.  
+- **External BSS System** → Consumes CSV exports and reports.  
+
+---
+
+#### 3.3 BI Module
+Shows the internal structure of the **BI Module**.
+
+![BI Component Diagram](./diagrams/C4_L3_BI.png)  
+📄 [PlantUML source](./docs/C4_L3_BI.puml)
+
+**Components:**
+- **BI Web UI** → Dashboards, analytics, and visualizations.  
+- **BI Web Services (APIs)** → Expose processed data for integration.  
+- **Authentication & Access Control** → Ensures secure access to data.  
+
+**External Context:**
+- **MySQL Cluster** → Data source for analytics and dashboards.  
+- **External BSS System** → Consumes BI services for billing and operations.  
+
+---
+
+
 ## 🔧 Tech Stack
 
 - **Languages**: Java, PHP, JavaScript, Bash  
