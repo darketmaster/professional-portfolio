@@ -1,0 +1,20 @@
+@startuml
+' ======================================================
+' C4 Model - System Context Diagram
+' Author: Your Full Name
+' ======================================================
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title CDR Processing System - System Context Diagram
+
+Person_Ext(sources, "Telecom Switches / Softswitches", "Produce raw CDRs in multiple formats (binary, plain text)")
+System(SystemCDR, "CDR Processing System", "Ingests, processes, and consolidates telecom CDRs for analytics and reporting")
+System_Ext(bss, "External BSS System", "Consumes processed data for billing and business operations")
+
+Rel(sources, SystemCDR, "Sends CDRs", "Binary / Plain Text")
+Rel(bss, SystemCDR, "Queries processed data", "Web Services / Reports")
+
+' Add footer with author name
+footer Author: Mauricio Lopez.
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+' ======================================================
+' C4 Model - Component Diagram (ETL Container)
+' Author: Your Full Name
+' ======================================================
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title ETL Container - Component Diagram
+
+System_Boundary(etl, "ETL Container (Crontab + Bash + Java)") {
+    
+    Component(crontab, "Crontab Scheduler", "Linux Cron", "Schedules periodic execution of ETL jobs")
+    Component(bash, "Bash Orchestration Scripts", "Shell Scripts", "Coordinates parsing, transformations, and invokes Java processes")
+    Component(java, "Java Parsers", "Java Applications", "Parse, normalize, and transform CDRs into structured format")
+    Component(loader, "Data Loader", "Java + JDBC", "Loads transformed data into the MySQL Cluster")
+}
+
+' External Systems / Containers for context
+System_Ext(repo, "Main Repository", "File Storage", "Stores raw CDRs before ETL")
+ContainerDb(db, "MySQL Cluster", "MySQL", "Stores transformed CDR data and applies business rules")
+
+' Relationships
+Rel(repo, crontab, "Makes raw CDRs available")
+Rel(crontab, bash, "Triggers jobs on schedule")
+Rel(bash, java, "Invokes Java parsers")
+Rel(java, loader, "Passes normalized data")
+Rel(loader, db, "Loads structured data", "JDBC")
+
+' Add footer with author name
+footer Author: Mauricio Lopez
+@enduml

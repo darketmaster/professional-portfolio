@@ -7,33 +7,56 @@ The system supports **multi-format CDRs (binary & plain text)**, consolidates da
 
 ---
 
-## 📐 Architecture
+## 📐 Architecture Diagrams (C4 Model)
 
-- **Input Sources**: Telecom switches producing binary/plain text CDRs.  
-- **Ingestion & Repository**: Main Repo stores raw files.  
-- **ETL Layer**: Orchestrated by CRONTAB & Bash, with Java parsers for normalization.  
-- **Database Cluster**: MySQL with stored procedures and functions for business logic.  
-- **BI Module**: Web-based services (PHP/JavaScript) for real-time queries and reporting.  
-- **Reporting Engine**: Bash scripts producing consolidated reports and CSV exports.  
-- **Data Warehouse**: Centralized MySQL-based repository for historical analysis.  
+The system architecture is documented using the **C4 Model** for software architecture, supported with PlantUML diagrams.
 
-Architecture diagrams can be found in the [`diagrams`](./diagrams) folder.
+### 1. System Context (Level 1)
+Shows the **CDR Processing System** as a black box, its external dependencies, and consumers.
+
+![System Context](./diagrams/cdr_system_context.png)
+
+📄 [PlantUML source](./diagrams/cdr_system_context.puml)
+
+**Explanation:**
+- **Telecom Switches / Softswitches** send raw CDRs (binary, plain text).  
+- **CDR Processing System** ingests, processes, and makes data available.  
+- **External BSS System** queries processed data for billing and business operations.  
 
 ---
 
-## 📂 Project Structure
+### 2. Container Diagram (Level 2)
+Breaks down the **CDR Processing System** into major containers and their interactions.
 
-## 📂 Project Structure
+![Container Diagram](./diagrams/cdr_container.png)
 
-```text
-├── cdr-processing-system/    # Project 1: Telecom CDR ETL + BI
-│   │── README.md             # Project-specific documentation
-│   │── diagrams/             # PlantUML diagrams (C4 model, UML)
-│   │── docs/                 # High-level docs (PDF/Word/Markdown)
-│   │── src/                  # Java, PHP, Bash source code
-│   │── scripts/              # Bash automation and reporting scripts
+📄 [PlantUML source](./diagrams/cdr_container.puml)
 
-```
+**Key Containers:**
+- **Main Repository** → Raw file storage.  
+- **ETL Orchestration** → Crontab + Bash + Java parsing.  
+- **MySQL Cluster** → Centralized storage with procedures/functions for business rules.  
+- **BI Module** → Web services and dashboards for near real-time analytics.  
+- **Reporting Engine** → Bash-based scripts to generate consolidated CSV reports.  
+
+---
+
+### 3. Component Diagram (Level 3 - ETL)
+Details the **ETL Container**, showing its internal components.
+
+![ETL Component Diagram](./diagrams/cdr_etl_component.png)
+
+📄 [PlantUML source](./diagrams/cdr_etl_component.puml)
+
+**Components:**
+- **Crontab Scheduler** → Triggers ETL jobs periodically.  
+- **Bash Orchestration Scripts** → Coordinate and call Java processes.  
+- **Java Parsers** → Parse, normalize, and transform CDRs.  
+- **Data Loader** → Loads structured data into the MySQL Cluster.  
+
+**External Context:**
+- **Main Repository** → Provides raw CDR files.  
+- **MySQL Cluster** → Stores processed data.  
 
 ---
 
@@ -42,7 +65,7 @@ Architecture diagrams can be found in the [`diagrams`](./diagrams) folder.
 - **Languages**: Java, PHP, JavaScript, Bash  
 - **Database**: MySQL (Cluster + Data Warehouse)  
 - **Scheduling**: CRONTAB  
-- **Architecture Modeling**: PlantUML (C4 diagrams)  
+- **Architecture Modeling**: PlantUML (C4 model)  
 
 ---
 
