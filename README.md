@@ -38,7 +38,7 @@ Each project highlights:
 
 Some of the technologies and tools you will find across the projects:
 
-- **Languages**: Java, PHP, JavaScript, Bash, Python  
+- **Languages**: Java, PHP, JavaScript, Bash, Python, C#, C/C++, Perl 
 - **Databases**: MySQL, Data Warehouse, NoSQL (MongoDB, Redis)  
 - **ETL & Data Processing**: Custom pipelines, Kafka, Spark  
 - **Cloud & Infrastructure**: Docker, Kubernetes, AWS, CI/CD  
@@ -55,8 +55,8 @@ This portfolio reflects both **real-world solutions** and **reference implementa
 
 ## 📫 Contact
 
-- GitHub: [YourGitHubProfile](https://github.com/yourusername)  
-- LinkedIn: [YourLinkedInProfile](https://linkedin.com/in/yourusername)  
-- Email: your.email@example.com  
+- GitHub: [YourGitHubProfile](https://github.com/darketmaster)  
+- LinkedIn: [YourLinkedInProfile](https://linkedin.com/in/malopezt)  
+- Email:   
 
 ---
