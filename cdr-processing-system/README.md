@@ -16,7 +16,7 @@ Shows the **CDR Processing System** as a black box, its external dependencies, a
 
 ![System Context](./diagrams/cdr_system_context.png)
 
-📄 [PlantUML source](./docs/cdr_system_context.puml)
+📄 [PlantUML source](./docs/C4_L1.puml)
 
 **Explanation:**
 - **Telecom Switches / Softswitches** send raw CDRs (binary, plain text).  
@@ -30,7 +30,7 @@ Breaks down the **CDR Processing System** into major containers and their intera
 
 ![Container Diagram](./diagrams/cdr_container.png)
 
-📄 [PlantUML source](./docs/cdr_container.puml)
+📄 [PlantUML source](./docs/C4_L2.puml)
 
 **Key Containers:**
 - **Main Repository** → Raw file storage.  
@@ -46,7 +46,7 @@ Details the **ETL Container**, showing its internal components.
 
 ![ETL Component Diagram](./diagrams/cdr_etl_component.png)
 
-📄 [PlantUML source](./docs/cdr_etl_component.puml)
+📄 [PlantUML source](./docs/C4_L3.puml)
 
 **Components:**
 - **Crontab Scheduler** → Triggers ETL jobs periodically.  
