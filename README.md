@@ -55,8 +55,8 @@ This portfolio reflects both **real-world solutions** and **reference implementa
 
 ## 📫 Contact
 
-- GitHub: [YourGitHubProfile](https://github.com/darketmaster)  
-- LinkedIn: [YourLinkedInProfile](https://linkedin.com/in/malopezt)  
+- GitHub: [darketmaster](https://github.com/darketmaster)  
+- LinkedIn: [malopezt](https://linkedin.com/in/malopezt)  
 - Email:   
 
 ---
