@@ -15,6 +15,6 @@ System_Ext(bss, "External BSS System", "Consumes processed data for billing and 
 Rel(sources, SystemCDR, "Sends CDRs", "Binary / Plain Text")
 Rel(bss, SystemCDR, "Queries processed data", "Web Services / Reports")
 
-' Add footer with author name
+
 footer Author: Mauricio Lopez.
 @enduml

@@ -32,6 +32,5 @@ Rel(db, bi, "Provides data for BI analytics")
 Rel(db, reporting, "Provides data for reports")
 Rel(bss, bi, "Queries processed data", "Web Services / Reports")
 
-' Add footer with author name
 footer Author: Mauricio Lopez
 @enduml

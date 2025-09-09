@@ -27,6 +27,5 @@ Rel(bash, java, "Invokes Java parsers")
 Rel(java, loader, "Passes normalized data")
 Rel(loader, db, "Loads structured data", "JDBC")
 
-' Add footer with author name
 footer Author: Mauricio Lopez
 @enduml
