@@ -12,13 +12,6 @@ Each project is organized in its own directory, with documentation, architecture
 - **[CDR Processing & BI System](./cdr-processing-system/)**  
   A full ETL and reporting system that ingests telecom CDRs (binary/plain text), consolidates them in a MySQL cluster, and provides near real-time analytics through a BI module and reporting engine.  
 
-- **Project 2 (Example: Microservices Platform)**  
-  A microservices-based architecture for a distributed application using Docker, Kubernetes, and REST APIs.  
-
-- **Project 3 (Example: Event-Driven System)**  
-  An event-driven system using Apache Kafka for real-time data streaming and processing.  
-
-*(More projects will be added to showcase different areas such as cloud-native applications, big data pipelines, and enterprise integration patterns.)*
 
 ---
 
