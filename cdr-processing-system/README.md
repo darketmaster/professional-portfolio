@@ -14,7 +14,7 @@ The system architecture is documented using the **C4 Model** for software archit
 ### 1. System Context (Level 1)
 Shows the **CDR Processing System** as a black box, its external dependencies, and consumers.
 
-![System Context](./diagrams/cdr_system_context.png)
+![System Context](./diagrams/C4_L1.png)
 
 📄 [PlantUML source](./docs/C4_L1.puml)
 
@@ -28,7 +28,7 @@ Shows the **CDR Processing System** as a black box, its external dependencies, a
 ### 2. Container Diagram (Level 2)
 Breaks down the **CDR Processing System** into major containers and their interactions.
 
-![Container Diagram](./diagrams/cdr_container.png)
+![Container Diagram](./diagrams/C4_L2.png)
 
 📄 [PlantUML source](./docs/C4_L2.puml)
 
@@ -44,9 +44,9 @@ Breaks down the **CDR Processing System** into major containers and their intera
 ### 3. Component Diagram (Level 3 - ETL)
 Details the **ETL Container**, showing its internal components.
 
-![ETL Component Diagram](./diagrams/cdr_etl_component.png)
+![ETL Component Diagram](./diagrams/C4_L3_ETL.png)
 
-📄 [PlantUML source](./docs/C4_L3.puml)
+📄 [PlantUML source](./docs/C4_L3_ETL.puml)
 
 **Components:**
 - **Crontab Scheduler** → Triggers ETL jobs periodically.  
