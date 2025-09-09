@@ -113,3 +113,7 @@ Shows the internal structure of the **BI Module**.
 - Automated reporting engine (CSV, consolidated reports)  
 
 ---
+
+## 🧑‍💻 Author
+**Mauricio Lopez**  
+Software Architect | System Design & Data Engineering
