@@ -13,7 +13,7 @@ Each project is organized in its own directory, with documentation, architecture
   A full ETL and reporting system that ingests telecom CDRs (binary/plain text), consolidates them in a MySQL cluster, and provides near real-time analytics through a BI module and reporting engine.  
 
 
-- **[OSS/BSS Mediation & Provisioning System (Multi-vendor)](./cdr-processing-system/)** 
+- **[OSS/BSS Mediation & Provisioning System (Multi-vendor)](mediation-provisioning-system)** 
 
   This project showcases a **telecom-grade OSS (Operational Support System)** integrated with BSS and customer management platforms, designed to streamline provisioning, monitoring, and support in multi-vendor environments.  
   The system provides **agnostic support for heterogeneous access devices (DSLAM, OLT, ONT, CPE, switches)** and leverages automation to deliver **faster service activation, unified monitoring, and improved troubleshooting efficiency**.  
