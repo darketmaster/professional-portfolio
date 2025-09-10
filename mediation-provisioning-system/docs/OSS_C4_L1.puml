@@ -1,0 +1,27 @@
+@startuml
+' ======================================================
+' C4 Model - System Context Diagram
+' Author: Mauricio Lopez
+' ======================================================
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title OSS/BSS Mediation & Provisioning System - Context (Author: Mauricio Lopez)
+
+Person(user, "Operations Team", "Network operators and support staff")
+System(oss, "OSS Platform", "Provisioning, mediation, monitoring, and integrations")
+System_Ext(bss, "BSS System", "Customer and billing management")
+System_Ext(cmr, "CMR System", "Customer management and reporting")
+
+System_Ext(devices, "Access Devices", "CPE, ONT, DSLAM, OLT, Switches")
+System_Ext(core, "Core Network", "Telco backbone")
+System_Ext(aaa, "AAA/LDAP", "Authentication, Authorization, Accounting")
+
+Rel(user, oss, "Uses")
+Rel(oss, devices, "Provisioning & Monitoring", "Telnet/SSH/SNMP/TR-069")
+Rel(oss, core, "Data exchange")
+Rel(oss, aaa, "Authentication requests")
+Rel(oss, bss, "Service requests and data exchange")
+Rel(bss, cmr, "Reporting and customer data")
+
+footer Author: Mauricio Lopez.
+@enduml

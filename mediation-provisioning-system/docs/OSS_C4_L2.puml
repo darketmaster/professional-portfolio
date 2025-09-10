@@ -1,0 +1,31 @@
+@startuml
+' ======================================================
+' C4 Model - Container Diagram
+' Author: Mauricio Lopez
+' ======================================================
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title OSS Platform - Container View (Author: Your Name)
+
+System_Boundary(oss, "OSS Platform") {
+    Container(db, "Database", "MySQL", "Stores provisioning templates, commands, and monitoring data")
+    Container(web, "Web Application", "JavaScript", "UI for provisioning, monitoring, and operations")
+    Container(api, "REST API", "HTTP/JSON", "Exposes OSS functionalities to other systems")
+    Container(mediation, "Mediation Layer", "Perl", "Executes and normalizes vendor-specific commands")
+}
+
+Person(user, "Operations Team")
+
+System_Ext(devices, "Access Devices", "CPE, ONT, DSLAM, OLT, Switches")
+System_Ext(bss, "BSS System", "Customer and billing management")
+
+Rel(user, web, "Uses")
+Rel(web, api, "Invokes")
+Rel(api, mediation, "Calls")
+Rel(mediation, db, "Reads/Writes provisioning and monitoring data")
+Rel(mediation, devices, "Configures & monitors devices", "Telnet/SSH/SNMP/TR-069")
+Rel(api, bss, "Data exchange")
+
+footer Author: Mauricio Lopez
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+' ======================================================
+' C4 Model - Component Diagram (Mediation Container)
+' Author: Mauricio Lopez
+' ======================================================
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title OSS Platform - Core Components
+
+Container_Boundary(oss, "OSS Platform") {
+    Component(db, "Database", "MySQL", "Stores device inventory, connection parameters, historical data, and provisioning templates")
+    Component(mediation, "Mediation Engine", "Perl", "Executes and normalizes vendor-specific commands for provisioning and monitoring")
+    Component(api, "REST API", "HTTP/JSON", "Exposes OSS functions and integrates with external systems (BSS, AAA)")
+    Component(web, "Web Application", "JavaScript", "UI for operators: provisioning, monitoring, troubleshooting")
+    Component(mon, "Monitoring Module", "SNMP/Telnet/SSH/TR-069", "Collects and aggregates performance and status data from network devices")
+    Component(hist, "History Manager", "MySQL + Perl", "Stores and retrieves operational logs, device states, and historical KPIs")
+}
+
+Person(user, "Operations Team")
+
+System_Ext(devices, "Access Devices", "CPE, ONT, DSLAM, OLT, Switches")
+
+Rel(user, web, "Uses")
+Rel(web, api, "Invokes")
+Rel(api, mediation, "Orchestrates commands")
+Rel(mediation, db, "Reads/Writes provisioning and monitoring data")
+Rel(mediation, devices, "Sends configuration and queries", "Telnet/SSH/SNMP/TR-069")
+Rel(mon, devices, "Collects telemetry & KPIs")
+Rel(mon, db, "Stores metrics")
+Rel(hist, db, "Stores/Retrieves history and logs")
+Rel(web, hist, "Queries historical data")
+Rel(api, mon, "Exposes monitoring information")
+
+footer Author: Mauricio Lopez
+@enduml
