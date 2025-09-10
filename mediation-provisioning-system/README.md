@@ -13,12 +13,15 @@ It integrates heterogeneous access devices with a centralized OSS, providing agi
 
 ---
 
-## 🚀 Key Features
+## 🚀 Key Features & Impact
 - **Multi-vendor agnostic:** Supports DSLAM, OLT, ONT, CPE, and switches from different vendors.  
 - **Dynamic automation:** Provisioning commands stored and managed from the database, enabling one-click provisioning and zero-touch workflows.  
 - **Integrated monitoring:** Real-time operational visibility across access and core network elements.  
 - **Scalability:** Designed to handle thousands of devices concurrently across multiple protocols.  
 - **End-to-end operations:** Supports troubleshooting and service management from Level 1 helpdesk up to advanced Level 3 engineering.  
+- **Unified support platform:** Consolidated multiple tools into a single OSS for provisioning, monitoring, and troubleshooting.  
+- **Provisioning efficiency:** Reduced provisioning times by more than **80%** through automation and workflow optimization.  
+- **Faster support resolution:** Reduced diagnostic and support times by more than **70%** by centralizing monitoring and historical data.  
 
 ---
 
