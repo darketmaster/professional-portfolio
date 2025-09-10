@@ -30,26 +30,26 @@ You can view the rendered images below or explore the source files inside the [`
 ---
 
 ### Level 1 – System Context
-- [PUML Source](./diagrams/L1_Context.puml)  
-- [Rendered PNG](./diagrams/L1_Context.png)  
+- [PUML Source](./docs/OSS_C4_L1.puml)  
+- [Rendered PNG](./diagrams/OSS_C4_L1.png)  
 
-![L1_Context](./diagrams/L1_Context.png)
+![L1_Context](./diagrams/OSS_C4_L1.png)
 
 ---
 
 ### Level 2 – Container View
-- [PUML Source](./diagrams/L2_Container.puml)  
-- [Rendered PNG](./diagrams/L2_Container.png)  
+- [PUML Source](./docs/OSS_C4_L2.puml)  
+- [Rendered PNG](./diagrams/OSS_C4_L2.png)  
 
-![L2_Container](./diagrams/L2_Container.png)
+![L2_Container](./diagrams/OSS_C4_L2.png)
 
 ---
 
 ### Level 3 – Component View (OSS Core Components)
-- [PUML Source](./diagrams/L3_Components.puml)  
-- [Rendered PNG](./diagrams/L3_Components.png)  
+- [PUML Source](./docs/OSS_C4_L3.puml)  
+- [Rendered PNG](./diagrams/OSS_C4_L3.png)  
 
-![L3_Components](./diagrams/L3_Components.png)
+![L3_Components](./diagrams/OSS_C4_L3.png)
 
 ---
 
