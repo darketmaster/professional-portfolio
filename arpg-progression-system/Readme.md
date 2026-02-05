@@ -92,7 +92,7 @@ The XP multiplier follows a carefully designed curve with three key phases:
 | -10 | 2.00x |
 | -20 | 3.00x |
 
-### XP Calculation Formula by Level Disparity
+### XP multiplier Calculation Formula by Level Disparity
 
 Let $L_P$ be the Player Level, $L_E$ the Enemy Level, and $XP_B$ the Enemy Base XP.
 
@@ -117,11 +117,20 @@ $$M_{Final} = \max \left( M_{Case}, \quad 0.01 \right)$$
 The Final XP ($XP_F$) is calculated and clamped:
 $$XP_F = \max \left( 1, \quad \lfloor XP_B \cdot M_{Final} \rfloor \right)$$
 
+![Alt Table example for Player lvl 20](./Example_pl20_diff.png)
+
 ## 4. Pillar III: The Reward Structure
 
 The effort of earning XP translates into power through three interconnected systems: Stats, Skills, and Loot.
 
 ### 4.1. Attribute System (Stats)
+
+### 4.1.1 Attribute Scaling System Overview
+
+The player's power is structured around a two-tiered system: **Primary Attributes** and **Secondary Attributes**.
+
+1.  **Primary Attributes (Investable):** These stats are directly increased by investing **Stat Points (SP)** earned upon leveling up.
+2.  **Secondary Attributes (Derived):** These stats are calculated dynamically based on the Primary Attributes, the Player Level, and a constant Base value.
 
 The character's core is defined by four primary attributes that scale linearly and are well-balanced:
 *   **STR (Strength):** Powers physical damage (P_ATK), physical defense (P_DEF), and physical energy (SP).
@@ -129,9 +138,59 @@ The character's core is defined by four primary attributes that scale linearly a
 *   **DEX (Dexterity):** Governs agility, including attack speed (Speed), critical strike chance (Crit Chance), and contributes to physical energy (SP).
 *   **INT (Intelligence):** Powers magical damage (M_ATK), magical defense (M_DEF), and magical energy (MP).
 
+#### 4.1.2 Derivation Formula
+
+The Secondary Attributes are calculated using the following linear combination formula:
+
+$$\text{Secondary Stat} = \left( \sum_{i} (\text{Primary Stat}_i \cdot \text{Coefficient}_i) \right) \cdot \text{Factor} + (\text{LVL} \cdot \text{Level Bonus}) + \text{Base}$$
+
+This ensures that the Secondary Stats (such as Crit Chance, Damage, and Defenses) scale predictably while maintaining clear dependencies on the Primary Attributes.
+
+| **Description** | **Graph** |
+| :--- | :--- |
+| Table displaying the Stat definition parameters (can be modified for change progress behavior) | ![Stat definition](./stats_definition.png) |
+
+### 4.1.2.1 Base Attribute Progression (No SP Investment)
+
+The following table and graph illustrate the character's **Base Attribute Progression**. These values represent the inherent growth of attributes driven *only* by the Player Level, with **no Stat Points (SP) added**. This serves as the minimum power floor for any character build.
+
+| **Description** | **Graph** |
+| :--- | :--- |
+| Base stat progression over player level without SP. | ![Base stat progression without SP](./natural_stat_progress.png) |
+| Graph visualizing the base stat progression curve. | ![Graph visualizing base stat progression](./graph_natural_stat_progress.png) |
+
+### 4.1.2.2 Sample Archetypes and Attribute Allocation
+
+To demonstrate the versatility and impact of SP investment, the following section showcases specific attribute allocations (Builds) at key progression milestones (Level 50 and 100). These tables illustrate the intentional trade-offs and specialization created by the system.
+
+#### Archetype Allocation Table (SP Investment)
+
+This table shows the **Stat Point (SP)** investment across the primary attributes for various character archetypes.
+
+| **Description** | **Graph** |
+| :--- | :--- |
+| Table detailing primary attribute (STR, STA, DEX, INT) investment for sample Level 50 and Level 100 character builds. | ![SP Allocation Table](./builds_examples.png) |
+
+#### Derived Attribute Results (Impact of Builds)
+
+The following table displays the calculated **Secondary Attribute** results (HP, P_ATK, Crit Chance, Speed, etc.) for each corresponding archetype shown in the allocation table. These values confirm the successful isolation of the build's intended strength and weakness.
+
+| **Description** | **Graph** |
+| :--- | :--- |
+| Table displaying the resulting derived secondary stats (P_ATK, HP, Crit Chance, Speed, etc.) for the different Level 50 and 100 builds. | ![Derived Stats Results Table](./stats_build_values.png) |
+
+
+#### 4.1.3 Milestone Rewards
+
+To enhance the feeling of progression, **Bonus SP** is awarded upon reaching specific level milestones. This mechanic rewards the player's commitment and allows for significant, periodic increases in core power, further reinforcing the leveling process.
+
+| **Description** | **Graph** |
+| :--- | :--- |
+| Table displaying the Stat points bonus for different player levels | ![Sp Milestone rewards](./stat_table_base_bonus.png) |
+
+
 This design avoids a "God Stat" problem, forcing the player to make meaningful decisions about their specialization.
 
-`[INSERT GRAPH: Stacked Bar Chart of Base Stats by Level]`
 
 ### 4.2. Skill Points
 
@@ -161,3 +220,6 @@ A well-designed system anticipates its own failure points.
 ## 6. Conclusion
 
 This progression system creates a robust symbiosis between player effort and reward. It intelligently guides the player, rewards boldness, and establishes a solid framework for a deep and lasting endgame driven by the hunt for legendary gear and the optimization of skill builds. The system is ready for implementation and subsequent fine-tuning during playtesting phases.
+
+***(Scope Limitation)***
+*It is critical to note that the detailed specifications for the **Skills System** and **Loot/Itemization** are not included in this document's scope. These auxiliary systems must be designed as the essential counterparts to the attribute scaling and will serve as the primary balancing tools during the playtesting phase to meet the power scaling demands of the endgame.*
