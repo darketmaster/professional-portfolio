@@ -102,10 +102,10 @@ $$\Delta L = L_P - L_E$$
 The Multiplier ($M$) is calculated in two conditional cases:
 
 #### Case 1: Player Level $\leq$ Enemy Level ($\Delta L \leq 0$)
-$$M_{Bonus} = \min \left( 1.0 + (-\Delta L \cdot 0.2), \quad 2.0 \right)$$
+$$M_{Bonus} = \min \left( 1.0 + (-\Delta L \cdot 0.1), \quad 3.0 \right)$$
 
 #### Case 2: Player Level $>$ Enemy Level ($\Delta L > 0$)
-$$M_{Penalty} = 1.0 - \left( \frac{\Delta L}{5} \right)^{1.5}$$
+$$M_{Penalty} = 1.0 - \left( \frac{\Delta L}{7} \right)^{2.5}$$
 
 ***
 
