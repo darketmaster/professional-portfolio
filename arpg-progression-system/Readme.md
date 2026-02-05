@@ -223,3 +223,8 @@ This progression system creates a robust symbiosis between player effort and rew
 
 ***(Scope Limitation)***
 *It is critical to note that the detailed specifications for the **Skills System** and **Loot/Itemization** are not included in this document's scope. These auxiliary systems must be designed as the essential counterparts to the attribute scaling and will serve as the primary balancing tools during the playtesting phase to meet the power scaling demands of the endgame.*
+
+
+## 🧑‍💻 Author
+**Mauricio Lopez**  
+Software Architect | System Design & Data Engineering
