@@ -23,6 +23,9 @@ Each project is organized in its own directory, with documentation, architecture
   - Over **70% reduction in diagnostic and support times** through unified monitoring and historical data.  
   - **Consolidation of support tools** into a single platform for Level 1 to Level 3 operations.  
 
+- **[ARPG Player Progression System](./arpg-progression-system/)**  
+  This document outlines a player progression system designed for a modern ARPG. The core philosophy is to reward strategic player choice over sheer time investment. A player's level functions not as the primary source of power, but as a key that gates access to greater power through a deep loot system and a meaningful skill tree.
+
 ---
 
 ## 📐 Architecture Focus
